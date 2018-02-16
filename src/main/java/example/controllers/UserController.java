@@ -1,4 +1,4 @@
-package netgloo.controllers;
+package example.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import netgloo.entities.User;
-import netgloo.repositories.UserRepository;
+import example.entities.User;
+import example.repositories.UserRepository;
 
 
 @Controller   
@@ -30,5 +30,15 @@ public class UserController {
 	@GetMapping(path="/all")
 	public @ResponseBody Iterable<User> getAllUsers() {
 		return userRepository.findAll();
+	}
+
+	@GetMapping(path="/id")
+	public @ResponseBody User getById(@RequestParam Integer id) {
+		return userRepository.findById(id);
+	}
+
+	@GetMapping(path="/getByName")
+	public @ResponseBody User getByName(@RequestParam String name) {
+		return userRepository.findByName(name);
 	}
 }
