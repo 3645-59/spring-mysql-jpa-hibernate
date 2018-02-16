@@ -7,10 +7,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class MainController {
 
-  @RequestMapping("/hello")
-  @ResponseBody
-  public String index() {
-    return "Hello World !!!";
-  }
+	private String test;
+
+	@RequestMapping("/hello")
+	@ResponseBody
+	public String index() {
+		String test = "Hello World !!!";
+		return test;
+	}
 
 }
