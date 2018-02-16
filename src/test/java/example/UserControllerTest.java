@@ -28,6 +28,10 @@ public class UserControllerTest {
 		User user = new User();
 		user.setEmail("test@yopmail.com");
 		user.setName("TEST");
+		
+		User user2 = new User();
+		user2.setEmail("aa@yopmail.com");
+		user2.setName("aa");
 
 		userRepository.save(user);
 
@@ -35,6 +39,6 @@ public class UserControllerTest {
 		User found = userRepository.findByName(user.getName());
 
 		// then
-		assertThat(found.getName()).isEqualTo(user.getName());
+		assertThat(found.getName()).isEqualTo(user2.getName());
 	}
 }
